@@ -11,4 +11,4 @@
 1. Extract test result from image 
 
 ### License
-The material in this repository is made available under the [MIT license]().
+The material in this repository is made available under the [MIT license](https://github.com/smkerr/DSA--Final-Project/blob/main/LICENSE).
