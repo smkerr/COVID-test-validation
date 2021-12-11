@@ -1,17 +1,17 @@
 # Data Structures & Algorithms Final Project
-## Recognising COVID Rapid Test Results
+## Validating COVID Rapid Test Results
 
 ### Objective
 * COVID rapid tests will continue to play a key role in the post-pandemic world 
 * Our project aims to develop a digital self-validation program for COVID rapid tests
 * This involves recognising handwritten serial numbers and test results
 
-### Data 
-We use data from the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/), a collection of more than 60,000 examples, to train our Machine Learning algorithm. 
-
 ### Minimum Viable Product
 1. Recognise serial number from image
 1. Recognise COVID test result from image 
+
+### Data 
+We use data from the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/), a collection of more than 60,000 examples, to train our Machine Learning algorithm. 
 
 ### Contributors 
 * Steven Kerr ([GitHub](https://github.com/smkerr))
