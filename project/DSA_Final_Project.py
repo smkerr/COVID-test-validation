@@ -22,6 +22,7 @@ DSA--Final-Project/
 │
 ├── project/ 
 ├── test-images/ 
+├── .gitignore 
 ├── README
 ├── LICENSE
 
@@ -130,7 +131,7 @@ An image containing an antigen rapid test is loaded from the repository. It is t
 """
 
 # load image 
-orig = cv2.imread("/content/test-image-1.png")
+orig = cv2.imread("./test-images/test-image-1.png") # can also try test-image_2.png or test-image-3.png
 
 # resize image to standardize 
 new_h = 500 #
@@ -140,7 +141,7 @@ dim = (int(w * r), new_h)
 img = resized = cv2.resize(orig, dim, interpolation = cv2.INTER_AREA)
 
 # display image 
-cv2_imshow(img)
+cv2.imshow('image', img)
 
 """6. Recognise COVID Test Results
 
@@ -155,7 +156,7 @@ contours present.
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
 # display image 
-cv2_imshow(hsv)
+cv2.imshow('hsv', hsv)
 
 # set the lower and upper bounds for the red hue
 lower_red = np.array([150,60,0])
@@ -165,31 +166,31 @@ upper_red = np.array([179,255,255])
 mask = cv2.inRange(hsv, lower_red, upper_red)
 
 # display image 
-cv2_imshow(mask)
+cv2.imshow('mask', mask)
 
 # perform bitwise and on the original image arrays using the mask
 res = cv2.bitwise_and(img, img, mask = mask)
 
 # display image
-cv2_imshow(res)
+cv2.imshow('res', res)
 
 # gray
 gray = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
 
 # display image
-cv2_imshow(gray)
+cv2.imshow('gray', gray)
 
 # blur 
 blurred = cv2.GaussianBlur(gray, (5, 5), 0) # Gaussian blurring with a 5×5 kernel to reduce high-frequency noise
 
 # display image
-cv2_imshow(blurred)
+cv2.imshow('blurred', blurred)
 
 # thresh
 ret, thresh = cv2.threshold(blurred, 50, 255, cv2.THRESH_BINARY)
 
 # display image 
-cv2_imshow(thresh)
+cv2.imshow('thresh', thresh)
 
 # find contours
 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
@@ -199,7 +200,7 @@ cnts = imutils.grab_contours(cnts)
 cv2.drawContours(img, cnts, -1, (0, 255, 0), 2)
 
 # display image
-cv2_imshow(img)
+cv2.imshow('image', img)
 
 # drumroll please...
 if len(cnts) == 2:
@@ -214,7 +215,7 @@ else:
 
 """7. Recognise Handwritten Serial Numbers
 
-An shape of black pixels is created in the same size as the original resized image. Since the serial number ('region of interest')
+A shape of black pixels is created in the same size as the original resized image. Since the serial number ('region of interest')
 is located towards the bottom of the COVID test, a mask is created to highlight the region of interest. The original resized image is 
 then grayed, blurred, and thresholded before the mask is applied. The remaining contours (ideally the digits) are sorted from left-to-right 
 and a list is initialized to which the digit arrays are appended once the rectangle points for each digit contour have been extracted, padding 
@@ -229,7 +230,7 @@ img = resized
 black = np.zeros((img.shape[0], img.shape[1], 3), np.uint8) #black in RGB
 
 # display image 
-cv2_imshow(black)
+cv2.imshow('black', black)
 
 # form the mask and highlight the ROI:
 black = cv2.rectangle(black,(10, 445),(135, 485),(255, 255, 255), -1) # the dimension of the ROI
@@ -237,23 +238,23 @@ gray = cv2.cvtColor(black, cv2.COLOR_BGR2GRAY) # convert to gray
 ret, b_mask = cv2.threshold(gray, 0, 255, 0) # convert to binary
 
 # display image 
-cv2_imshow(b_mask)
+cv2.imshow('b_mask', b_mask)
 
 # process original image 
 gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) # gray
-cv2_imshow(gray)
+cv2.imshow('gray', gray)
 
 blurred = cv2.GaussianBlur(gray, (5, 5), cv2.BORDER_DEFAULT) # Gaussian blurring with a 5×5 kernel to reduce high-frequency noise
-cv2_imshow(blurred)
+cv2.imshow('blurred', blurred)
 
 ret, thresh = cv2.threshold(blurred, 200, 255, cv2.THRESH_BINARY_INV) # thresh
-cv2_imshow(thresh)
+cv2.imshow('thresh', thresh)
 
 # Mask the image above with your original image
 masked = cv2.bitwise_and(thresh, thresh, mask = b_mask)
 
 # display image
-cv2_imshow(masked)
+cv2.imshow('masked', masked)
 
 # find contours
 cnts = cv2.findContours(masked, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) #or try cv2.CHAIN_APPROX_SIMPLE
@@ -281,10 +282,10 @@ for c in cnts:
    digits.append(digit) # creates a list of digit arrays
 
 # display contours 
-cv2_imshow(img)
+cv2.imshow('image', img)
 
 # display first digit to make sure order is correct
-cv2_imshow(digits[0])
+cv2.imshow('first digit', digits[0])
 digits[1].shape
 
 digits = np.array(digits) # convert list of digits to np.array
