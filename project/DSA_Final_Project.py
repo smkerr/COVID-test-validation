@@ -296,19 +296,3 @@ digits = digits.reshape(digits.shape[0], # length remains equal to the number of
 y_pred = vot_clr.predict(digits)
 
 print("The serial number for this COVID test is:", y_pred)
-
-"""## Sources
-
-* https://stackoverflow.com/questions/62247234/wrong-contours-and-wrong-output-of-handwritten-digit-recognition-ai-model
-* https://python.hotexamples.com/examples/imutils.contours/-/sort_contours/python-sort_contours-function-examples.html
-* https://github.com/PyImageSearch/imutils/blob/master/demos/sorting_contours.py  
-* https://medium.com/featurepreneur/colour-filtering-and-colour-pop-effects-using-opencv-python-3ce7d4576140 
-* https://stackoverflow.com/questions/42004652/how-can-i-find-contours-inside-roi-using-opencv-and-python
-* https://stackoverflow.com/questions/44333605/what-does-bitwise-and-operator-exactly-do-in-opencv
-* https://towardsdatascience.com/ensemble-learning-using-scikit-learn-85c4531ff86a
-* https://stackoverflow.com/questions/44650888/resize-an-image-without-distortion-opencv
-* https://stackoverflow.com/questions/30331944/finding-red-color-in-image-using-python-opencv
-* https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html
-* https://stackoverflow.com/questions/44650888/resize-an-image-without-distortion-opencv
-* https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html 
-"""
