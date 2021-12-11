@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-"""DSA Final Project.ipynb
+"""Recognising COVID Rapid Test Results with Python
 
-# **Recognising COVID Rapid Test Results**
-
-## **Key Assumptions:**
+Key Assumptions:
 * Our code works for one type of COVID self test
 * The COVID test results will display in a pink or red hue
 
@@ -16,6 +14,7 @@ Table of Contents
 6. Recognise COVID Test Results
 7. Recognise Handwritten Serial Number
 
+
 1. Repository Structure
 
 DSA--Final-Project/
@@ -25,6 +24,7 @@ DSA--Final-Project/
 ├── .gitignore 
 ├── README
 ├── LICENSE
+
 
 2. Import Dependencies
 
@@ -293,6 +293,6 @@ digits = np.array(digits) # convert list of digits to np.array
 digits = digits.reshape(digits.shape[0], # length remains equal to the number of digits
                         digits.shape[1]*digits.shape[2]) # the new size is the heighth x width of the digit images (28 x 28 = 784)
 
-y_pred = vot_clr.predict(digits)
+y_pred = vot_clr.predict(digits) # use ensemble classifier to identify serial number
 
 print("The serial number for this COVID test is:", y_pred)
