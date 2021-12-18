@@ -250,7 +250,7 @@ masked = cv2.bitwise_and(thresh, thresh, mask = b_mask)
 cv2.imshow('masked', masked)
 
 # find contours
-cnts = cv2.findContours(masked, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE) #or try cv2.CHAIN_APPROX_SIMPLE
+cnts = cv2.findContours(masked, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
 cnts = imutils.grab_contours(cnts)
 
 # sort the contours from left-to-right
