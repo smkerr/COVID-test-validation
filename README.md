@@ -16,7 +16,6 @@ We use data from the [MNIST database of handwritten digits](http://yann.lecun.co
 ### Dependencies
 * Python ≥3.5
 * sklearn ≥0.20
-* numpy
 * cv2
 * imutils
 
