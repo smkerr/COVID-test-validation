@@ -20,8 +20,8 @@ Table of Contents
 
 DSA--Final-Project/
 │
-├── project/ 
-├── test-images/ 
+├── DSA--Final-Project.py
+├── test-image.png 
 ├── .gitignore 
 ├── README
 ├── LICENSE
@@ -131,7 +131,7 @@ An image containing an antigen rapid test is loaded from the repository. It is t
 """
 
 # load image 
-orig = cv2.imread("./test-images/test-image-1.png") # can also try test-image_2.png or test-image-3.png
+orig = cv2.imread("./test-image.png")
 
 # resize image to standardize 
 new_h = 500 #
