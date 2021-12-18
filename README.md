@@ -21,7 +21,7 @@ We use data from the [MNIST database of handwritten digits](http://yann.lecun.co
 * imutils
 
 ### Contributors 
-* Steven Kerr ([GitHub](https://github.com/smkerr))
+* Steven Kerr
 * Kai Foerster
 * Dominik Cramer
 
