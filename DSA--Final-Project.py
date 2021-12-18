@@ -37,7 +37,6 @@ import sys
 assert sys.version_info >= (3, 5)
 
 # import necessary dependencies
-import os
 import numpy as np
 import cv2
 import imutils
@@ -54,7 +53,7 @@ np.random.seed(42)
 
 The MNIST dataset containing images of handwritten digits is imported and then randomly split into a training set and a testing set. 
 Then, the Multi-layer Perception classifier, the K-Nearest Neighbor classifier, and the Random Forest classifier are imported and trained
-individually before predictions are made and an accuracy score for each of them is calculated and printed.
+individually before predictions are made and an accuracy score for each of them is calculated.
 """
 
 # import dataset 
@@ -92,19 +91,10 @@ y_pred_mlp = mlp_clr.predict(x_test)
 y_pred_knn = knn_clr.predict(x_test)
 y_pred_rf = rf_clr.predict(x_test)
 
-# calculate accuracy scores for various classifiers
-from sklearn.metrics import accuracy_score
-
-print("ACCURACY SCORES")
-print("---------------")
-print("MLP classifier: ", accuracy_score(y_test, y_pred_mlp))
-print("KNN classifier: ", accuracy_score(y_test, y_pred_knn))
-print("RF classifier:  ", accuracy_score(y_test, y_pred_rf))
-
 """4. Create Ensemble Model
 
 After an ensemble classifier is imported, the three classifiers trained above are combined in order to create a more accurate ensemble model. 
-This is then used to make a prediction and once again calculate and print accuracy scores.
+This is then used to make a prediction and print accuracy scores.
 """
 
 # import ensemble classifier
@@ -118,12 +108,15 @@ vot_clr.fit(x_train, y_train)
 # make prediction with ensemble classifier
 y_pred_vot = vot_clr.predict(x_test)
 
+# calculate accuracy scores for various classifiers
+from sklearn.metrics import accuracy_score
+
 print("ACCURACY SCORES")
 print("---------------")
-print("MLP classifier: ", accuracy_score(y_test, y_pred_mlp))
-print("KNN classifier: ", accuracy_score(y_test, y_pred_knn))
-print("RF classifier:  ", accuracy_score(y_test, y_pred_rf))
-print("*Voting classifier: ", accuracy_score(y_test, y_pred_vot))
+print("MLP classifier:    ", accuracy_score(y_test, y_pred_mlp))
+print("KNN classifier:    ", accuracy_score(y_test, y_pred_knn))
+print("RF classifier:     ", accuracy_score(y_test, y_pred_rf))
+print("Voting classifier: ", accuracy_score(y_test, y_pred_vot))
 
 """5. Load Image
 
@@ -131,10 +124,10 @@ An image containing an antigen rapid test is loaded from the repository. It is t
 """
 
 # load image 
-orig = cv2.imread("./test-image.png")
+orig = cv2.imread("test-image.png")
 
 # resize image to standardize 
-new_h = 500 #
+new_h = 500 
 h, w = orig.shape[:2]
 r =  new_h / float(h)
 dim = (int(w * r), new_h)
@@ -204,13 +197,13 @@ cv2.imshow('image', img)
 
 # drumroll please...
 if len(cnts) == 2:
-  print('The number of lines found in the COVID test is', len(cnts) )
+  print('\nThe number of lines found in the COVID test is:', len(cnts) )
   print('The COVID test is positive')
 elif len(cnts) == 1:
-  print('The number of lines found in the COVID test is', len(cnts) )
+  print('\nThe number of lines found in the COVID test is:', len(cnts) )
   print('The COVID test is negative')
 else: 
-  print('The number of lines found in the COVID test is', len(cnts) )
+  print('\nThe number of lines found in the COVID test is:', len(cnts) )
   print('The COVID test is inconclusive')
 
 """7. Recognise Handwritten Serial Numbers
@@ -295,4 +288,4 @@ digits = digits.reshape(digits.shape[0], # length remains equal to the number of
 
 y_pred = vot_clr.predict(digits)
 
-print("The serial number for this COVID test is:", y_pred)
+print("\nThe serial number for this COVID test is:", y_pred)
