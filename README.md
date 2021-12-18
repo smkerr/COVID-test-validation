@@ -13,6 +13,13 @@
 ### Data 
 We use data from the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/), a collection of more than 60,000 examples, to train our Machine Learning algorithm. 
 
+### Dependencies
+* Python ≥3.5
+* sklearn ≥0.20
+* numpy
+* cv2
+* imutils
+
 ### Contributors 
 * Steven Kerr ([GitHub](https://github.com/smkerr))
 * Kai Foerster
