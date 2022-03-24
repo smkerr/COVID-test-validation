@@ -1,4 +1,4 @@
-# Validating COVID Rapid Test Results
+## Validating COVID Rapid Test Results
 
 ### Objective
 * COVID rapid tests will continue to play a key role in the post-pandemic world 
