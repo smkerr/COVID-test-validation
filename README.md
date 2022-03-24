@@ -1,30 +1,29 @@
-# Data Structures & Algorithms Final Project
-## Validating COVID Rapid Test Results
+# Validating COVID Rapid Test Results
 
-### Objective
+## Objective
 * COVID rapid tests will continue to play a key role in the post-pandemic world 
 * Our project aims to develop a digital self-validation program for COVID rapid tests
 * This involves recognising handwritten serial numbers and test results
 
-### Minimum Viable Product
+## Minimum Viable Product
 1. Recognise serial number from image
 1. Recognise COVID test result from image 
 
-### Data 
+## Data 
 We use data from the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/), a collection of more than 60,000 examples, to train our Machine Learning algorithm. 
 
-### Dependencies
+## Dependencies
 * Python ≥3.5
 * sklearn ≥0.20
 * cv2
 * imutils
 
-### Contributors 
+## Contributors 
 * Steven Kerr
 * Kai Foerster
 * Dominik Cramer
 
-### Sources
+## Sources
 * [imutils package by PyImageSearch](https://github.com/PyImageSearch/imutils/blob/master/demos/sorting_contours.py)
 * [Changing Colorspaces by OpenCV](https://docs.opencv.org/4.x/df/d9d/tutorial_py_colorspaces.html)
 * [Finding red color in image using Python & OpenCV from Stack Overflow](https://stackoverflow.com/questions/30331944/finding-red-color-in-image-using-python-opencv)
@@ -34,5 +33,5 @@ We use data from the [MNIST database of handwritten digits](http://yann.lecun.co
 * [Wrong contours and wrong output of handwritten digit recognition AI model from Stack Overflow](https://stackoverflow.com/questions/62247234/wrong-contours-and-wrong-output-of-handwritten-digit-recognition-ai-model)
 * [Building an Ensemble Learning Model Using Scikit-learn by Eijaz Allibhai](https://towardsdatascience.com/ensemble-learning-using-scikit-learn-85c4531ff86a)
 
-### License
+## License
 The material in this repository is made available under the [MIT license](https://github.com/smkerr/DSA--Final-Project/blob/main/LICENSE).
