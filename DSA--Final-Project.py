@@ -66,7 +66,7 @@ mnist.target = mnist.target.astype(np.uint8) # as uint8 data type
 # randomly split dataset into training set and testing set 
 from sklearn.model_selection import train_test_split
 
-x_train, x_test, y_train, y_test = train_test_split(
+X_train, X_test, y_train, y_test = train_test_split(
     mnist.data, mnist.target, test_size = 10000, random_state = 42)
 
 # import classifiers
@@ -76,20 +76,20 @@ from sklearn.ensemble import RandomForestClassifier
 
 # train Multi-layer Perception classifier
 mlp_clr = MLPClassifier(random_state = 42)
-mlp_clr.fit(x_train, y_train)
+mlp_clr.fit(X_train, y_train)
 
 # train K Nearest Neighbor classifier
 knn_clr = KNeighborsClassifier(n_neighbors = 3)
-knn_clr.fit(x_train, y_train)
+knn_clr.fit(X_train, y_train)
 
 # train Random Forest classifier
 rf_clr = RandomForestClassifier(random_state = 42, n_estimators = 100)
-rf_clr.fit(x_train, y_train)
+rf_clr.fit(X_train, y_train)
 
 # make predictions with individual classifiers
-y_pred_mlp = mlp_clr.predict(x_test)
-y_pred_knn = knn_clr.predict(x_test)
-y_pred_rf = rf_clr.predict(x_test)
+y_pred_mlp = mlp_clr.predict(X_test)
+y_pred_knn = knn_clr.predict(X_test)
+y_pred_rf = rf_clr.predict(X_test)
 
 """4. Create Ensemble Model
 
@@ -103,10 +103,10 @@ from sklearn.ensemble import VotingClassifier
 # combine classifiers to create a more accurate ensemble classifier
 vot_clr = VotingClassifier(estimators = [('mlp', mlp_clr), ('knn', knn_clr),('rf', rf_clr)],
                            voting = 'soft') # voting classifier predicts based on the argmax of the sums of classifiers' predicted probabilities 
-vot_clr.fit(x_train, y_train)
+vot_clr.fit(X_train, y_train)
 
 # make prediction with ensemble classifier
-y_pred_vot = vot_clr.predict(x_test)
+y_pred_vot = vot_clr.predict(X_test)
 
 # calculate accuracy scores for various classifiers
 from sklearn.metrics import accuracy_score
