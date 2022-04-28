@@ -5,6 +5,8 @@
 * Our project aims to develop a digital self-validation program for COVID rapid tests
 * This involves recognising handwritten serial numbers and test results
 
+![COVID Rapid Test Results](https://github.com/smkerr/smkerr.github.io/blob/main/assets/img/validating-covid-test-results.png?raw=true)
+
 ### Minimum Viable Product
 1. Recognise serial number from image
 1. Recognise COVID test result from image 
