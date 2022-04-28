@@ -5,11 +5,15 @@
 * Our project aims to develop a digital self-validation program for COVID rapid tests
 * This involves recognising handwritten serial numbers and test results
 
-![COVID Rapid Test Results](https://github.com/smkerr/smkerr.github.io/blob/main/assets/img/validating-covid-test-results.png?raw=true)
-
 ### Minimum Viable Product
 1. Recognise serial number from image
 1. Recognise COVID test result from image 
+
+<p align="center">
+  <img 
+    src="https://github.com/smkerr/smkerr.github.io/blob/main/assets/img/validating-covid-test-results.png?raw=true"
+  >
+</p>
 
 ### Data 
 We use data from the [MNIST database of handwritten digits](http://yann.lecun.com/exdb/mnist/), a collection of more than 60,000 examples, to train our Machine Learning algorithm. 
