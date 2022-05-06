@@ -18,9 +18,9 @@ Table of Contents
 
 1. Repository Structure
 
-DSA--Final-Project/
+COVID-test-validation/
 │
-├── DSA--Final-Project.py
+├── COVID-test-validation.py
 ├── test-image.png 
 ├── .gitignore 
 ├── README
